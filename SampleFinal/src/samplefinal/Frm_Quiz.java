@@ -20,11 +20,8 @@ import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
 
 import java.awt.event.ActionEvent;
-import java.text.DecimalFormat;
-import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 
 import javax.swing.plaf.basic.BasicTabbedPaneUI;

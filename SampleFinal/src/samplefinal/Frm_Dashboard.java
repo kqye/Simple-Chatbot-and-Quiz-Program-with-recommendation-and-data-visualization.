@@ -652,7 +652,7 @@ public class Frm_Dashboard extends javax.swing.JFrame {
 
     private void btnChatbotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChatbotActionPerformed
         // TODO add your handling code here:
-        Frm_Chatbot chatbot = new Frm_Chatbot();
+        Frm_Chatbot chatbot = new Frm_Chatbot(username);
 
         chatbot.setExtendedState(this.getExtendedState()); // keep fullscreen/normal
         chatbot.setVisible(true);

@@ -2,6 +2,11 @@ package samplefinal;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridBagLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,34 +19,49 @@ import javax.swing.JOptionPane;
  * @author acer
  */
 public class Frm_Sample extends javax.swing.JFrame {
-int attempt = 0;
+    int attempt = 0;
     
- private boolean isValidPassword(String password) 
- {
-     if (password.length() < 8) {
-         return false;
+    private boolean isMaximized = false;
+    private int mouseX, mouseY;
+
+    private boolean isValidPassword(String password) 
+    {
+        if (password.length() < 8) {
+            return false;
+       }
+
+       boolean hasUpper = false;
+       boolean hasLower = false;
+       boolean hasNumber = false;
+
+       for (char c : password.toCharArray()) {
+           if (Character.isUpperCase(c)) {
+               hasUpper = true;
+           } else if (Character.isLowerCase(c)) {
+               hasLower = true;
+           } else if (Character.isDigit(c)) {
+               hasNumber = true;
+           }
+       }
+
+       return hasUpper && hasLower && hasNumber;
     }
-
-    boolean hasUpper = false;
-    boolean hasLower = false;
-    boolean hasNumber = false;
-
-    for (char c : password.toCharArray()) {
-        if (Character.isUpperCase(c)) {
-            hasUpper = true;
-        } else if (Character.isLowerCase(c)) {
-            hasLower = true;
-        } else if (Character.isDigit(c)) {
-            hasNumber = true;
-        }
-    }
-
-    return hasUpper && hasLower && hasNumber;
- }
+    
     public Frm_Sample() {
         initComponents();
         this.setLocationRelativeTo(null);
+
+        // Wrapper panel that centers without resizing
+        JPanel centerPanel = new JPanel(new GridBagLayout());
+        centerPanel.setOpaque(false);
+        centerPanel.add(jPanel2);
+
+        // Parent panel fills the frame
+        jPanel1.setLayout(new BorderLayout());
+        jPanel1.add(titlebarpnl3, BorderLayout.NORTH);
+        jPanel1.add(centerPanel, BorderLayout.CENTER);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,16 +82,25 @@ int attempt = 0;
         btnGuest = new javax.swing.JButton();
         chkShowPass = new javax.swing.JCheckBox();
         btnLogin = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        titlebarpnl3 = new javax.swing.JPanel();
+        closebtn = new javax.swing.JButton();
+        minimizebtn = new javax.swing.JButton();
+        maximizebtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1400, 800));
 
         jPanel1.setBackground(new java.awt.Color(184, 49, 67));
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Broadway", 0, 85)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Broadway", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("USER LOGIN");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
 
         txtUser.setBackground(new java.awt.Color(204, 0, 0));
         txtUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -81,14 +110,17 @@ int attempt = 0;
                 txtUserActionPerformed(evt);
             }
         });
+        jPanel2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 560, 50));
 
         jLabel2.setFont(new java.awt.Font("Broadway", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("Password:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 610, -1));
 
         jLabel3.setFont(new java.awt.Font("Broadway", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
         jLabel3.setText("Username:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 610, -1));
 
         txtPass.setBackground(new java.awt.Color(204, 0, 0));
         txtPass.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -99,11 +131,18 @@ int attempt = 0;
                 txtPassActionPerformed(evt);
             }
         });
+        jPanel2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 560, 50));
 
         btnGuest.setBackground(new java.awt.Color(204, 0, 0));
         btnGuest.setFont(new java.awt.Font("Broadway", 1, 14)); // NOI18N
         btnGuest.setForeground(new java.awt.Color(238, 238, 238));
         btnGuest.setText("Continue as a Guest");
+        btnGuest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuestActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnGuest, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 410, 218, 47));
 
         chkShowPass.setBackground(new java.awt.Color(204, 0, 0));
         chkShowPass.setFont(new java.awt.Font("Broadway", 0, 18)); // NOI18N
@@ -114,6 +153,7 @@ int attempt = 0;
                 chkShowPassActionPerformed(evt);
             }
         });
+        jPanel2.add(chkShowPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, -1, -1));
 
         btnLogin.setBackground(new java.awt.Color(204, 0, 0));
         btnLogin.setFont(new java.awt.Font("Broadway", 0, 48)); // NOI18N
@@ -124,53 +164,101 @@ int attempt = 0;
                 btnLoginActionPerformed(evt);
             }
         });
+        jPanel2.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 470, 284, 62));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(433, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chkShowPass)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1)
-                        .addComponent(txtUser)
-                        .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(9, 9, 9)
-                            .addComponent(jLabel2))))
-                .addGap(371, 371, 371))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(570, 570, 570)
-                .addComponent(btnGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/red bg.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 560));
+
+        titlebarpnl3.setBackground(new java.awt.Color(153, 0, 0));
+        titlebarpnl3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                titlebarpnl3MouseDragged(evt);
+            }
+        });
+        titlebarpnl3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                titlebarpnl3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                titlebarpnl3MouseReleased(evt);
+            }
+        });
+
+        closebtn.setBackground(new java.awt.Color(194, 89, 86));
+        closebtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close (1).png"))); // NOI18N
+        closebtn.setBorder(null);
+        closebtn.setBorderPainted(false);
+        closebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closebtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closebtnMouseExited(evt);
+            }
+        });
+        closebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closebtnActionPerformed(evt);
+            }
+        });
+
+        minimizebtn.setBackground(new java.awt.Color(194, 89, 86));
+        minimizebtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimize-sign.png"))); // NOI18N
+        minimizebtn.setBorder(null);
+        minimizebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                minimizebtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                minimizebtnMouseExited(evt);
+            }
+        });
+        minimizebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minimizebtnActionPerformed(evt);
+            }
+        });
+
+        maximizebtn.setBackground(new java.awt.Color(194, 89, 86));
+        maximizebtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/maximize.png"))); // NOI18N
+        maximizebtn.setBorder(null);
+        maximizebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                maximizebtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                maximizebtnMouseExited(evt);
+            }
+        });
+        maximizebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maximizebtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout titlebarpnl3Layout = new javax.swing.GroupLayout(titlebarpnl3);
+        titlebarpnl3.setLayout(titlebarpnl3Layout);
+        titlebarpnl3Layout.setHorizontalGroup(
+            titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarpnl3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(minimizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(maximizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
-                .addGap(52, 52, 52)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(chkShowPass)
-                .addGap(37, 37, 37)
-                .addComponent(btnGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+        titlebarpnl3Layout.setVerticalGroup(
+            titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarpnl3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(minimizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(closebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(maximizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -178,28 +266,21 @@ int attempt = 0;
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+            .addComponent(titlebarpnl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(titlebarpnl3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -233,55 +314,151 @@ int attempt = 0;
         dialog.setVisible(true);
     }
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-    String username = txtUser.getText().trim();
-    String password = String.valueOf(txtPass.getPassword());
+        String username = txtUser.getText().trim();
+        String password = String.valueOf(txtPass.getPassword());
 
-    // Empty fields
-    if (username.isEmpty() || password.isEmpty()) {
-        JOptionPane.showMessageDialog(this,
-                "Please fill in all fields.");
-        resetFields();
-        //return;
-    }
-
-    // Password format validation
-    if (!isValidPassword(password)) {
-        JOptionPane.showMessageDialog(this,
-                "Password must be at least 8 characters\n" +
-                "with uppercase, lowercase, and number.");
-        resetFields();
-        //return;
-    }
-
-    // Check login credentials
-    String role = checkLogin(username, password);
-
-    // invalid login
-    if (role == null) 
-    {
-        attempt++;
-
-        //JOptionPane.showMessageDialog(this,
-                //"Invalid login.\nAttempt: " + attempt + " of 3");
-
-        resetFields();
-
-        if (attempt >= 3) {
+        // Empty fields
+        if (username.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this,
-                    "You already reached 3 attempts.\nThe program will close.",
-                    "Maximum Attempts Reached",
-                    JOptionPane.WARNING_MESSAGE);
-            System.exit(0);
+                    "Please fill in all fields.");
+            resetFields();
+            //return;
         }
-        return;
-    }
-    
-    
 
-    // direct to next frame
-    new Frm_Dashboard(username, role);
-    dispose();
+        // Password format validation
+        if (!isValidPassword(password)&& !password.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Password must be at least 8 characters\n" +
+                    "with uppercase, lowercase, and number.");
+            resetFields();
+            //return;
+        }
+
+        // Check login credentials
+        String role = checkLogin(username, password);
+
+        // invalid login
+        if (role == null) 
+        {
+            attempt++;
+
+            //JOptionPane.showMessageDialog(this,
+                    //"Invalid login.\nAttempt: " + attempt + " of 3");
+
+            resetFields();
+
+            if (attempt >= 3) {
+                JOptionPane.showMessageDialog(this,
+                        "You already reached 3 attempts.\nThe program will close.",
+                        "Maximum Attempts Reached",
+                        JOptionPane.WARNING_MESSAGE);
+                System.exit(0);
+            }
+            return;
+        }
+        
+        Frm_Dashboard dashboard = new Frm_Dashboard(username, role);
+        dashboard.setExtendedState(this.getExtendedState());
+        dashboard.setVisible(true);
+        // Use invokeLater to ensure it gets focus after login frame closes
+        java.awt.EventQueue.invokeLater(() -> {
+            dashboard.toFront();
+            dashboard.requestFocus();
+        });
+        dashboard.toFront();
+        this.dispose(); // close login safely
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestActionPerformed
+        // TODO add your handling code here:
+        // Directly go to dashboard as Guest
+        String guestUsername = "Guest";
+        String guestRole = "Guest"; // This will control access level in dashboard
+        Frm_Dashboard dashboard = new Frm_Dashboard(guestUsername, guestRole);
+        dashboard.setExtendedState(this.getExtendedState());
+        dashboard.setVisible(true);
+        // Use invokeLater to ensure it gets focus after login frame closes
+        java.awt.EventQueue.invokeLater(() -> {
+            dashboard.toFront();
+            dashboard.requestFocus();
+        });
+        
+        dashboard.toFront();
+        this.dispose(); // close login safely
+    }//GEN-LAST:event_btnGuestActionPerformed
+
+    private void titlebarpnl3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titlebarpnl3MouseDragged
+        // TODO add your handling code here:
+        if (isMaximized) return; // optional: disable dragging when maximized
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - mouseX, y - mouseY);
+    }//GEN-LAST:event_titlebarpnl3MouseDragged
+
+    private void closebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closebtnActionPerformed
+        // TODO add your handling code here:   
+        System.exit(0);   
+    }//GEN-LAST:event_closebtnActionPerformed
+
+    private void maximizebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maximizebtnActionPerformed
+        // TODO add your handling code here:
+          if (!isMaximized) {
+            setExtendedState(JFrame.MAXIMIZED_BOTH);
+            isMaximized = true;
+        } else {
+            setExtendedState(JFrame.NORMAL);
+            setSize(1400, 800);
+            setLocationRelativeTo(null);
+            isMaximized = false;
+        }
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_maximizebtnActionPerformed
+
+    private void minimizebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizebtnActionPerformed
+        // TODO add your handling code here:
+        setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_minimizebtnActionPerformed
+
+    private void titlebarpnl3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titlebarpnl3MousePressed
+        // TODO add your handling code here:
+        mouseX = evt.getX();
+        mouseY = evt.getY();
+    }//GEN-LAST:event_titlebarpnl3MousePressed
+
+    private void titlebarpnl3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titlebarpnl3MouseReleased
+        
+    }//GEN-LAST:event_titlebarpnl3MouseReleased
+
+    private void closebtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closebtnMouseEntered
+        // TODO add your handling code here:
+        closebtn.setBackground(new Color(170, 70, 68));
+    }//GEN-LAST:event_closebtnMouseEntered
+
+    private void closebtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closebtnMouseExited
+        // TODO add your handling code here:
+        closebtn.setBackground(new Color(194, 89, 86));
+    }//GEN-LAST:event_closebtnMouseExited
+
+    private void maximizebtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizebtnMouseEntered
+        // TODO add your handling code here:
+        maximizebtn.setBackground(new Color(170, 70, 68));
+    }//GEN-LAST:event_maximizebtnMouseEntered
+
+    private void maximizebtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizebtnMouseExited
+        // TODO add your handling code here:
+        maximizebtn.setBackground(new Color(194, 89, 86));
+    }//GEN-LAST:event_maximizebtnMouseExited
+
+    private void minimizebtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizebtnMouseEntered
+        // TODO add your handling code here:
+        minimizebtn.setBackground(new Color(170, 70, 68));
+    }//GEN-LAST:event_minimizebtnMouseEntered
+
+    private void minimizebtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizebtnMouseExited
+        // TODO add your handling code here:
+        minimizebtn.setBackground(new Color(194, 89, 86));
+    }//GEN-LAST:event_minimizebtnMouseExited
 
     private String checkLogin(String username, String password) {
 
@@ -345,11 +522,16 @@ int attempt = 0;
     private javax.swing.JButton btnGuest;
     private javax.swing.JButton btnLogin;
     private javax.swing.JCheckBox chkShowPass;
+    private javax.swing.JButton closebtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton maximizebtn;
+    private javax.swing.JButton minimizebtn;
+    private javax.swing.JPanel titlebarpnl3;
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables

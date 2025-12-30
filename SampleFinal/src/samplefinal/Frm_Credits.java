@@ -51,11 +51,11 @@ public class Frm_Credits extends javax.swing.JFrame {
     private void applyResponsiveCredits() {
         // Fake names (edit later)
         lblGrpMem.setText("<html>"
-                + "• Juan Dela Cruz<br>"
-                + "• Maria Santos<br>"
-                + "• Carlo Reyes<br>"
-                + "• Angela Lopez<br>"
-                + "• Kevin Bautista"
+                + "• Karylle Banaag<br>"
+                + "• Cyrelle Kristin Gapit<br>"
+                + "• Francen Manalo<br>"
+                + "• Cristine Joy Mendoza<br>"
+                + "• John Carlo Penuliar"
                 + "</html>");
 
         lblDesc.setVerticalAlignment(javax.swing.SwingConstants.TOP);

@@ -187,6 +187,13 @@ public class Frm_Dashboard extends javax.swing.JFrame {
         JPanel logoutPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         logoutPanel.setOpaque(false);
         logoutPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 25, 0));
+        
+        btnLogout.setBorder(BorderFactory.createEmptyBorder(10, 28, 10, 28));
+        btnLogout.setFocusPainted(false);
+        btnLogout.setBorderPainted(false);
+        btnLogout.setContentAreaFilled(true);
+        btnLogout.setOpaque(true);
+        
         logoutPanel.add(btnLogout);
 
         jPanel3.add(logoutPanel, BorderLayout.SOUTH);
@@ -236,6 +243,7 @@ public class Frm_Dashboard extends javax.swing.JFrame {
         closebtn = new javax.swing.JButton();
         minimizebtn = new javax.swing.JButton();
         maximizebtn = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
@@ -329,12 +337,18 @@ public class Frm_Dashboard extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Simple Chatbot, Quiz, Recommendation, and Data Visualization System");
+
         javax.swing.GroupLayout titlebarpnl3Layout = new javax.swing.GroupLayout(titlebarpnl3);
         titlebarpnl3.setLayout(titlebarpnl3Layout);
         titlebarpnl3Layout.setHorizontalGroup(
             titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarpnl3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(minimizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(maximizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -349,7 +363,8 @@ public class Frm_Dashboard extends javax.swing.JFrame {
                 .addGroup(titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(minimizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(closebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(maximizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                    .addComponent(maximizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -364,27 +379,36 @@ public class Frm_Dashboard extends javax.swing.JFrame {
         lblWelcome.setBackground(new java.awt.Color(255, 153, 153));
         lblWelcome.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(204, 0, 0));
-        lblWelcome.setText("jLabel2");
+        lblWelcome.setText("User:");
 
         lblTime.setBackground(new java.awt.Color(255, 153, 153));
         lblTime.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         lblTime.setForeground(new java.awt.Color(204, 0, 0));
-        lblTime.setText("jLabel2");
+        lblTime.setText("Time:");
 
         lblRole.setBackground(new java.awt.Color(255, 153, 153));
         lblRole.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         lblRole.setForeground(new java.awt.Color(204, 0, 0));
-        lblRole.setText("jLabel2");
+        lblRole.setText("Role:");
 
         lblDate.setBackground(new java.awt.Color(255, 153, 153));
         lblDate.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         lblDate.setForeground(new java.awt.Color(204, 0, 0));
-        lblDate.setText("jLabel2");
+        lblDate.setText("Date:");
 
         btnLogout.setBackground(new java.awt.Color(51, 51, 51));
         btnLogout.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("LOGOUT");
+        btnLogout.setBorder(null);
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseExited(evt);
+            }
+        });
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
@@ -497,8 +521,8 @@ public class Frm_Dashboard extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(btnCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(443, 443, 443)
-                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(429, 429, 429)
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -523,8 +547,8 @@ public class Frm_Dashboard extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCredits, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnDataViz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(btnLogout)
+                .addGap(18, 18, 18)
+                .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -540,7 +564,7 @@ public class Frm_Dashboard extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1125, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -637,6 +661,17 @@ public class Frm_Dashboard extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
+         int choice = javax.swing.JOptionPane.showConfirmDialog(
+            this,
+            "Are you sure you want to log out?",
+            "Confirm Logout",
+            javax.swing.JOptionPane.YES_NO_OPTION,
+            javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (choice == javax.swing.JOptionPane.YES_OPTION) {
+            System.exit(0); // closes the program
+        }
         
     }//GEN-LAST:event_btnLogoutActionPerformed
 
@@ -720,6 +755,16 @@ public class Frm_Dashboard extends javax.swing.JFrame {
         btnCredits.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnCreditsMouseExited
 
+    private void btnLogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseEntered
+        // TODO add your handling code here:
+        btnLogout.setBackground(new Color(102,102,102));
+    }//GEN-LAST:event_btnLogoutMouseEntered
+
+    private void btnLogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseExited
+         // TODO add your handling code here:
+        btnLogout.setBackground(new Color(51,51,51));
+    }//GEN-LAST:event_btnLogoutMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -763,6 +808,7 @@ public class Frm_Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnQuiz;
     private javax.swing.JButton closebtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblDate;

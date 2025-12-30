@@ -110,7 +110,7 @@ public class Frm_DataViz extends javax.swing.JFrame {
 
         // 1) BAR: Cases per Disease
         addChartSection(
-                "1) Cases per Disease (Bar Chart)",
+                "Cases per Disease",
                 createBarChart(
                         "Cases per Disease",
                         new String[]{"Flu", "Dengue", "COVID-19", "Pneumonia", "TB"},
@@ -124,14 +124,14 @@ public class Frm_DataViz extends javax.swing.JFrame {
 
         // 2) PIE: Gender Distribution
         addChartSection(
-                "2) Gender Distribution (Pie Chart)",
+                "Gender Distribution",
                 createPieChart(
                         "Gender Distribution",
                         new String[]{"Male", "Female"},
                         new int[]{rand(50, 150), rand(50, 150)}
                 ),
                 
-                "Shows the patient population by gender.n"
+                "Shows the patient population by gender."
                     + "Useful for demographic monitoring and reporting. "
                     
                 
@@ -139,7 +139,7 @@ public class Frm_DataViz extends javax.swing.JFrame {
 
         // 3) BAR: Age Group
         addChartSection(
-                "3) Patients by Age Group (Bar Chart)",
+                "Patients by Age Group",
                 createBarChart(
                         "Patients by Age Group",
                         new String[]{"0-12", "13-19", "20-35", "36-59", "60+"},
@@ -154,7 +154,7 @@ public class Frm_DataViz extends javax.swing.JFrame {
 
         // 4) PIE: Admission Status
         addChartSection(
-                "4) Admission Status (Pie Chart)",
+                "Admission Status",
                 createPieChart(
                         "Admission Status",
                         new String[]{"Admitted", "Discharged", "Observation"},
@@ -167,7 +167,7 @@ public class Frm_DataViz extends javax.swing.JFrame {
 
         // 5) BAR: Monthly New Cases
         addChartSection(
-                "5) Monthly New Cases (Bar Chart)",
+                "Monthly New Cases",
                 createBarChart(
                         "Monthly New Cases",
                         new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun"},
@@ -182,7 +182,7 @@ public class Frm_DataViz extends javax.swing.JFrame {
 
         // 6) BAR: Ward Occupancy
         addChartSection(
-                "6) Ward Occupancy (Bar Chart)",
+                "Ward Occupancy",
                 createBarChart(
                         "Ward Occupancy",
                         new String[]{"ER", "Ward A", "Ward B", "ICU"},
@@ -196,7 +196,7 @@ public class Frm_DataViz extends javax.swing.JFrame {
 
         // 7) PIE: Severity Level
         addChartSection(
-                "7) Severity Level (Pie Chart)",
+                "Severity Level",
                 createPieChart(
                         "Severity Level",
                         new String[]{"Mild", "Moderate", "Severe"},
@@ -385,6 +385,7 @@ public class Frm_DataViz extends javax.swing.JFrame {
         closebtn = new javax.swing.JButton();
         minimizebtn = new javax.swing.JButton();
         maximizebtn = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -458,12 +459,18 @@ public class Frm_DataViz extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Simple Chatbot, Quiz, Recommendation, and Data Visualization System");
+
         javax.swing.GroupLayout titlebarpnl3Layout = new javax.swing.GroupLayout(titlebarpnl3);
         titlebarpnl3.setLayout(titlebarpnl3Layout);
         titlebarpnl3Layout.setHorizontalGroup(
             titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarpnl3Layout.createSequentialGroup()
-                .addContainerGap(1078, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(minimizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(maximizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -478,23 +485,24 @@ public class Frm_DataViz extends javax.swing.JFrame {
                 .addGroup(titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(minimizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(closebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(maximizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                    .addComponent(maximizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jLabel1.setFont(new java.awt.Font("Broadway", 0, 55)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Broadway", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("DATA VISUALIZATION");
+        jLabel1.setText("PATIENT AND DISEASEA MONITORING DATA VISUALIZATION");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(titlebarpnl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1204, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -623,6 +631,7 @@ public class Frm_DataViz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closebtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton maximizebtn;
     private javax.swing.JButton minimizebtn;

@@ -50,6 +50,8 @@ public class Frm_Sample extends javax.swing.JFrame {
     public Frm_Sample() {
         initComponents();
         this.setLocationRelativeTo(null);
+        // Make fullscreen on start
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         // Wrapper panel that centers without resizing
         JPanel centerPanel = new JPanel(new GridBagLayout());
@@ -83,10 +85,12 @@ public class Frm_Sample extends javax.swing.JFrame {
         chkShowPass = new javax.swing.JCheckBox();
         btnLogin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         titlebarpnl3 = new javax.swing.JPanel();
         closebtn = new javax.swing.JButton();
         minimizebtn = new javax.swing.JButton();
         maximizebtn = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -98,13 +102,14 @@ public class Frm_Sample extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Broadway", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel1.setText("USER LOGIN");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("WELCOME!");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
 
         txtUser.setBackground(new java.awt.Color(204, 0, 0));
         txtUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txtUser.setForeground(new java.awt.Color(238, 238, 238));
+        txtUser.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser.setCaretColor(new java.awt.Color(255, 255, 255));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserActionPerformed(evt);
@@ -112,19 +117,20 @@ public class Frm_Sample extends javax.swing.JFrame {
         });
         jPanel2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 560, 50));
 
-        jLabel2.setFont(new java.awt.Font("Broadway", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("Password:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 610, -1));
 
-        jLabel3.setFont(new java.awt.Font("Broadway", 0, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
         jLabel3.setText("Username:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 610, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 610, -1));
 
         txtPass.setBackground(new java.awt.Color(204, 0, 0));
         txtPass.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txtPass.setForeground(new java.awt.Color(238, 238, 238));
+        txtPass.setForeground(new java.awt.Color(255, 255, 255));
+        txtPass.setCaretColor(new java.awt.Color(255, 255, 255));
         txtPass.setEchoChar('*');
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,10 +139,19 @@ public class Frm_Sample extends javax.swing.JFrame {
         });
         jPanel2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 560, 50));
 
-        btnGuest.setBackground(new java.awt.Color(204, 0, 0));
-        btnGuest.setFont(new java.awt.Font("Broadway", 1, 14)); // NOI18N
+        btnGuest.setBackground(new java.awt.Color(0, 0, 0));
+        btnGuest.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnGuest.setForeground(new java.awt.Color(238, 238, 238));
         btnGuest.setText("Continue as a Guest");
+        btnGuest.setBorder(null);
+        btnGuest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGuestMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGuestMouseExited(evt);
+            }
+        });
         btnGuest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuestActionPerformed(evt);
@@ -145,20 +160,29 @@ public class Frm_Sample extends javax.swing.JFrame {
         jPanel2.add(btnGuest, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 410, 218, 47));
 
         chkShowPass.setBackground(new java.awt.Color(204, 0, 0));
-        chkShowPass.setFont(new java.awt.Font("Broadway", 0, 18)); // NOI18N
-        chkShowPass.setForeground(new java.awt.Color(238, 238, 238));
+        chkShowPass.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkShowPass.setForeground(new java.awt.Color(255, 255, 255));
         chkShowPass.setText("Show Password");
         chkShowPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkShowPassActionPerformed(evt);
             }
         });
-        jPanel2.add(chkShowPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, -1, -1));
+        jPanel2.add(chkShowPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 350, 160, -1));
 
         btnLogin.setBackground(new java.awt.Color(204, 0, 0));
         btnLogin.setFont(new java.awt.Font("Broadway", 0, 48)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(238, 238, 238));
         btnLogin.setText("LOGIN");
+        btnLogin.setBorder(null);
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLoginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLoginMouseExited(evt);
+            }
+        });
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -169,6 +193,11 @@ public class Frm_Sample extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/red bg.png"))); // NOI18N
         jLabel4.setText("jLabel4");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 560));
+
+        jLabel5.setFont(new java.awt.Font("Broadway", 0, 48)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel5.setText("USER LOGIN");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
 
         titlebarpnl3.setBackground(new java.awt.Color(153, 0, 0));
         titlebarpnl3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -237,12 +266,18 @@ public class Frm_Sample extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Simple Chatbot, Quiz, Recommendation, and Data Visualization System");
+
         javax.swing.GroupLayout titlebarpnl3Layout = new javax.swing.GroupLayout(titlebarpnl3);
         titlebarpnl3.setLayout(titlebarpnl3Layout);
         titlebarpnl3Layout.setHorizontalGroup(
             titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarpnl3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(minimizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(maximizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,6 +290,7 @@ public class Frm_Sample extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarpnl3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(minimizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(closebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(maximizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
@@ -317,33 +353,39 @@ public class Frm_Sample extends javax.swing.JFrame {
         String username = txtUser.getText().trim();
         String password = String.valueOf(txtPass.getPassword());
 
-        // Empty fields
+        // 1) Empty fields
         if (username.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this,
-                    "Please fill in all fields.");
+                    "Please fill in all fields.",
+                    "Missing Information",
+                    JOptionPane.WARNING_MESSAGE);
             resetFields();
-            //return;
+            return;
         }
 
-        // Password format validation
-        if (!isValidPassword(password)&& !password.isEmpty()) {
+        // 2) Password format validation
+        if (!isValidPassword(password)) {
             JOptionPane.showMessageDialog(this,
                     "Password must be at least 8 characters\n" +
-                    "with uppercase, lowercase, and number.");
-            resetFields();
-            //return;
+                    "with uppercase, lowercase, and number.",
+                    "Invalid Password Format",
+                    JOptionPane.WARNING_MESSAGE);
+            txtPass.setText("");
+            txtPass.requestFocus();
+            return;
         }
 
-        // Check login credentials
+        // 3) Check login credentials
         String role = checkLogin(username, password);
 
-        // invalid login
-        if (role == null) 
-        {
+        // 4) Wrong credentials
+        if (role == null) {
             attempt++;
 
-            //JOptionPane.showMessageDialog(this,
-                    //"Invalid login.\nAttempt: " + attempt + " of 3");
+            JOptionPane.showMessageDialog(this,
+                    "Invalid username or password.\nAttempt: " + attempt + " of 3",
+                    "Login Failed",
+                    JOptionPane.WARNING_MESSAGE);
 
             resetFields();
 
@@ -351,22 +393,25 @@ public class Frm_Sample extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,
                         "You already reached 3 attempts.\nThe program will close.",
                         "Maximum Attempts Reached",
-                        JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.ERROR_MESSAGE);
                 System.exit(0);
             }
             return;
         }
-        
+
+        // ✅ Successful login (reset attempts just in case)
+        attempt = 0;
+
         Frm_Dashboard dashboard = new Frm_Dashboard(username, role);
         dashboard.setExtendedState(this.getExtendedState());
         dashboard.setVisible(true);
-        // Use invokeLater to ensure it gets focus after login frame closes
+
         java.awt.EventQueue.invokeLater(() -> {
             dashboard.toFront();
             dashboard.requestFocus();
         });
-        dashboard.toFront();
-        this.dispose(); // close login safely
+
+        this.dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestActionPerformed
@@ -460,6 +505,26 @@ public class Frm_Sample extends javax.swing.JFrame {
         minimizebtn.setBackground(new Color(194, 89, 86));
     }//GEN-LAST:event_minimizebtnMouseExited
 
+    private void btnLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseEntered
+        // TODO add your handling code here:
+        btnLogin.setBackground(new Color(170, 70, 68));
+    }//GEN-LAST:event_btnLoginMouseEntered
+
+    private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited
+        // TODO add your handling code here:
+        btnLogin.setBackground(new Color(204, 0, 0));
+    }//GEN-LAST:event_btnLoginMouseExited
+
+    private void btnGuestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuestMouseEntered
+        // TODO add your handling code here:
+        btnGuest.setBackground(new Color(51,51,51));
+    }//GEN-LAST:event_btnGuestMouseEntered
+
+    private void btnGuestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuestMouseExited
+        // TODO add your handling code here:
+        btnGuest.setBackground(new Color(0,0,0));
+    }//GEN-LAST:event_btnGuestMouseExited
+
     private String checkLogin(String username, String password) {
 
     if (username.equals("admin") && password.equals("Admin123")) 
@@ -527,6 +592,8 @@ public class Frm_Sample extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton maximizebtn;

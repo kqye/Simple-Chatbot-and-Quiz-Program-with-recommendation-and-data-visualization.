@@ -838,6 +838,7 @@ public class Frm_Quiz extends javax.swing.JFrame {
         closebtn = new javax.swing.JButton();
         minimizebtn = new javax.swing.JButton();
         maximizebtn = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblTimer = new javax.swing.JLabel();
         lblUser = new javax.swing.JLabel();
@@ -1051,12 +1052,18 @@ public class Frm_Quiz extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Simple Chatbot, Quiz, Recommendation, and Data Visualization System");
+
         javax.swing.GroupLayout titlebarpnl3Layout = new javax.swing.GroupLayout(titlebarpnl3);
         titlebarpnl3.setLayout(titlebarpnl3Layout);
         titlebarpnl3Layout.setHorizontalGroup(
             titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarpnl3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(minimizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(maximizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1071,14 +1078,15 @@ public class Frm_Quiz extends javax.swing.JFrame {
                 .addGroup(titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(minimizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(closebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(maximizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                    .addComponent(maximizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jLabel1.setFont(new java.awt.Font("Broadway", 0, 55)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("QUIZ");
+        jLabel1.setText("SCIENCE QUIZ");
 
         lblTimer.setBackground(new java.awt.Color(255, 153, 153));
         lblTimer.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
@@ -3100,18 +3108,22 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseEntered
         // TODO add your handling code here:
+        btnBack.setBackground(new Color(102,102,102));
     }//GEN-LAST:event_btnBackMouseEntered
 
     private void btnBackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseExited
         // TODO add your handling code here:
+        btnBack.setBackground(new Color(51,51,51));
     }//GEN-LAST:event_btnBackMouseExited
 
     private void btnNextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextMouseEntered
         // TODO add your handling code here:
+        btnNext.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNextMouseEntered
 
     private void btnNextMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextMouseExited
         // TODO add your handling code here:
+        btnNext.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNextMouseExited
 
     private void cbxchemCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxchemCActionPerformed
@@ -3120,14 +3132,17 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext1MouseEntered
         // TODO add your handling code here:
+        btnNext1.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext1MouseEntered
 
     private void btnNext1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext1MouseExited
         // TODO add your handling code here:
+        btnNext1.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext1MouseExited
 
     private void rdbAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbAActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_rdbAActionPerformed
 
     private void rdbA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbA3ActionPerformed
@@ -3136,18 +3151,22 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext2MouseEntered
         // TODO add your handling code here:
+        btnNext2.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext2MouseEntered
 
     private void btnNext2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext2MouseExited
         // TODO add your handling code here:
+        btnNext2.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext2MouseExited
 
     private void btnNext3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext3MouseEntered
         // TODO add your handling code here:
+        btnNext3.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext3MouseEntered
 
     private void btnNext3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext3MouseExited
         // TODO add your handling code here:
+        btnNext3.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext3MouseExited
 
     private void cbxB4CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxB4CActionPerformed
@@ -3160,10 +3179,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext4MouseEntered
         // TODO add your handling code here:
+        btnNext4.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext4MouseEntered
 
     private void btnNext4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext4MouseExited
         // TODO add your handling code here:
+        btnNext4.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext4MouseExited
 
     private void rdbA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbA6ActionPerformed
@@ -3172,10 +3193,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext5MouseEntered
         // TODO add your handling code here:
+        btnNext5.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext5MouseEntered
 
     private void btnNext5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext5MouseExited
         // TODO add your handling code here:
+        btnNext5.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext5MouseExited
 
     private void rdbA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbA7ActionPerformed
@@ -3184,10 +3207,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext6MouseEntered
         // TODO add your handling code here:
+        btnNext6.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext6MouseEntered
 
     private void btnNext6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext6MouseExited
         // TODO add your handling code here:
+        btnNext6.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext6MouseExited
 
     private void rdbA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbA8ActionPerformed
@@ -3196,10 +3221,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext7MouseEntered
         // TODO add your handling code here:
+        btnNext7.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext7MouseEntered
 
     private void btnNext7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext7MouseExited
         // TODO add your handling code here:
+        btnNext7.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext7MouseExited
 
     private void rdbB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbB8ActionPerformed
@@ -3212,10 +3239,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext8MouseEntered
         // TODO add your handling code here:
+        btnNext8.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext8MouseEntered
 
     private void btnNext8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext8MouseExited
         // TODO add your handling code here:
+        btnNext8.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext8MouseExited
 
     private void rdbA10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbA10ActionPerformed
@@ -3224,10 +3253,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext9MouseEntered
         // TODO add your handling code here:
+        btnNext9.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext9MouseEntered
 
     private void btnNext9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext9MouseExited
         // TODO add your handling code here:
+        btnNext9.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext9MouseExited
 
     private void rdbA11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbA11ActionPerformed
@@ -3240,10 +3271,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext10MouseEntered
         // TODO add your handling code here:
+        btnNext10.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext10MouseEntered
 
     private void btnNext10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext10MouseExited
         // TODO add your handling code here:
+        btnNext10.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext10MouseExited
 
     private void rdbA12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbA12ActionPerformed
@@ -3252,10 +3285,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext11MouseEntered
         // TODO add your handling code here:
+        btnNext11.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext11MouseEntered
 
     private void btnNext11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext11MouseExited
         // TODO add your handling code here:
+        btnNext11.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext11MouseExited
 
     private void cbxB13CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxB13CActionPerformed
@@ -3264,10 +3299,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext12MouseEntered
         // TODO add your handling code here:
+        btnNext12.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext12MouseEntered
 
     private void btnNext12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext12MouseExited
         // TODO add your handling code here:
+        btnNext12.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext12MouseExited
 
     private void rdbA14CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbA14CActionPerformed
@@ -3280,10 +3317,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext13MouseEntered
         // TODO add your handling code here:
+        btnNext13.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext13MouseEntered
 
     private void btnNext13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext13MouseExited
         // TODO add your handling code here:
+        btnNext13.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext13MouseExited
 
     private void rdbA15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbA15ActionPerformed
@@ -3292,10 +3331,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext14MouseEntered
         // TODO add your handling code here:
+        btnNext14.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext14MouseEntered
 
     private void btnNext14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext14MouseExited
         // TODO add your handling code here:
+        btnNext14.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext14MouseExited
 
     private void rdbA16CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbA16CActionPerformed
@@ -3304,10 +3345,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnNext15MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext15MouseEntered
         // TODO add your handling code here:
+        btnNext15.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnNext15MouseEntered
 
     private void btnNext15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext15MouseExited
         // TODO add your handling code here:
+        btnNext15.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnNext15MouseExited
 
     private void rdbA17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbA17ActionPerformed
@@ -3320,10 +3363,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnSubmitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseEntered
         // TODO add your handling code here:
+        btnSubmit.setBackground(new Color(170, 70, 68));
     }//GEN-LAST:event_btnSubmitMouseEntered
 
     private void btnSubmitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseExited
         // TODO add your handling code here:
+        btnSubmit.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnSubmitMouseExited
 
     private void btnTakeQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTakeQuizActionPerformed
@@ -3343,8 +3388,20 @@ public class Frm_Quiz extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         stopTimer();
+        // 1) get current state of chatbot (NORMAL / MAXIMIZED / ICONIFIED)
+        int state = this.getExtendedState();
+
+        // 2) close chatbot
         this.dispose();
-        new Frm_Dashboard(username, role).setVisible(true);
+
+        // 3) open dashboard and apply same state
+        Frm_Dashboard dashboard = new Frm_Dashboard(username, role);
+        dashboard.setExtendedState(state);
+
+        // optional: if you want it to appear in the same screen position when NORMAL
+        // dashboard.setLocation(this.getLocation());
+
+        dashboard.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
@@ -3434,10 +3491,13 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnRetakeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetakeMouseEntered
         // TODO add your handling code here:
+        btnRetake.setBackground(new Color(170, 70, 68));
+        
     }//GEN-LAST:event_btnRetakeMouseEntered
 
     private void btnRetakeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetakeMouseExited
         // TODO add your handling code here:
+        btnRetake.setBackground(new Color(204,0,0));
     }//GEN-LAST:event_btnRetakeMouseExited
 
     private void btnRetakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetakeActionPerformed
@@ -3447,8 +3507,12 @@ public class Frm_Quiz extends javax.swing.JFrame {
         int used = attemptCountByUser.getOrDefault(username, 0);
         if (used >= MAX_ATTEMPTS) {
             JOptionPane.showMessageDialog(this, "No attempts left. You will be redirected to the dashboard.");
+                
+            int state = this.getExtendedState();
             this.dispose();
-            new Frm_Dashboard(username, role).setVisible(true);
+            Frm_Dashboard dashboard = new Frm_Dashboard(username, role);
+            dashboard.setExtendedState(state);
+            dashboard.setVisible(true);
         }
         clearAllAnswers();
         incrementAttempt();
@@ -3458,17 +3522,32 @@ public class Frm_Quiz extends javax.swing.JFrame {
 
     private void btnBack1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBack1MouseEntered
         // TODO add your handling code here:
+        btnBack1.setBackground(new Color(102,102,102));
+        
     }//GEN-LAST:event_btnBack1MouseEntered
 
     private void btnBack1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBack1MouseExited
         // TODO add your handling code here:
+        btnBack1.setBackground(new Color(51,51,51));
     }//GEN-LAST:event_btnBack1MouseExited
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
         // TODO add your handling code here:
         stopTimer();
+        // 1) get current state of chatbot (NORMAL / MAXIMIZED / ICONIFIED)
+        int state = this.getExtendedState();
+
+        // 2) close chatbot
         this.dispose();
-        new Frm_Dashboard(username, role).setVisible(true);
+
+        // 3) open dashboard and apply same state
+        Frm_Dashboard dashboard = new Frm_Dashboard(username, role);
+        dashboard.setExtendedState(state);
+
+        // optional: if you want it to appear in the same screen position when NORMAL
+        // dashboard.setLocation(this.getLocation());
+
+        dashboard.setVisible(true);
     }//GEN-LAST:event_btnBack1ActionPerformed
 
     /**
@@ -3543,6 +3622,7 @@ public class Frm_Quiz extends javax.swing.JFrame {
     private javax.swing.JButton closebtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblAttemptDesc;

@@ -48,10 +48,12 @@ public class Frm_Chatbot extends javax.swing.JFrame {
     // store last user answers if you want
     private String lastAnswer = "";
     private final String username;
+    private final String role;        
             
-            
-    public Frm_Chatbot(String username) {
+    public Frm_Chatbot(String username, String role) {
         this.username = username;
+        this.role = role;
+        
         initComponents();
         setLocationRelativeTo(null);
         makeChatbotResponsive();
@@ -59,7 +61,7 @@ public class Frm_Chatbot extends javax.swing.JFrame {
     }
 
     public Frm_Chatbot() {
-        this("TestUser"); // fallback if you run Frm_Chatbot directly
+        this("TestUser", "Admin"); // fallback if you run Frm_Chatbot directly
     }
     
     private void makeChatbotResponsive() {
@@ -86,23 +88,22 @@ public class Frm_Chatbot extends javax.swing.JFrame {
         // ===== CENTER WRAPPER: adds margins and centers the chat area =====
         JPanel centerWrapper = new JPanel(new GridBagLayout());
         centerWrapper.setOpaque(false);
-        centerWrapper.setBorder(new EmptyBorder(20, 80, 40, 80)); // L/R margins + bottom space
+        centerWrapper.setBorder(new EmptyBorder(20, 80, 40, 80)); // top, left, bottom, right
 
-        // This panel is the "chat box" container (scroll + input row)
+        // This panel is the "chat box" container (scroll + input row + back button)
         JPanel chatBox = new JPanel();
         chatBox.setOpaque(false);
         chatBox.setLayout(new BoxLayout(chatBox, BoxLayout.Y_AXIS));
 
-        // Control the max width of the whole chat area (so it won’t stretch too much)
-        int maxWidth = 1100; // change if you want wider/narrower
+        int maxWidth = 1100; // max width of chat area
         chatBox.setMaximumSize(new Dimension(maxWidth, Integer.MAX_VALUE));
 
         // ===== Chat Area (scrollpane) =====
         jScrollPane1.setAlignmentX(Component.CENTER_ALIGNMENT);
         jScrollPane1.setPreferredSize(new Dimension(maxWidth, 430));
         jScrollPane1.setMaximumSize(new Dimension(maxWidth, 600));
-
         chatBox.add(jScrollPane1);
+
         chatBox.add(Box.createVerticalStrut(15));
 
         // ===== Input Row (textfield + send button aligned) =====
@@ -111,7 +112,6 @@ public class Frm_Chatbot extends javax.swing.JFrame {
         inputRow.setLayout(new BoxLayout(inputRow, BoxLayout.X_AXIS));
         inputRow.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Set consistent heights
         int inputH = 55;
         int sendW = 70;
 
@@ -126,6 +126,25 @@ public class Frm_Chatbot extends javax.swing.JFrame {
         inputRow.add(btnSend);
 
         chatBox.add(inputRow);
+
+        // space between input and back button
+        chatBox.add(Box.createVerticalStrut(20));
+
+        // ===== BACK BUTTON ROW (CENTERED BELOW) =====
+        JPanel backRow = new JPanel();
+        backRow.setOpaque(false);
+        backRow.setLayout(new BoxLayout(backRow, BoxLayout.X_AXIS));
+        backRow.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        btnBack.setPreferredSize(new Dimension(160, 45));
+        btnBack.setMaximumSize(new Dimension(160, 45));
+
+        backRow.add(btnBack);
+
+        chatBox.add(backRow);
+
+        // optional bottom space
+        chatBox.add(Box.createVerticalStrut(20));
 
         // Put chatBox into centerWrapper (centered)
         centerWrapper.add(chatBox, new GridBagConstraints());
@@ -345,6 +364,7 @@ public class Frm_Chatbot extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnBack = new javax.swing.JButton();
         titlebarpnl3 = new javax.swing.JPanel();
         closebtn = new javax.swing.JButton();
         minimizebtn = new javax.swing.JButton();
@@ -361,6 +381,25 @@ public class Frm_Chatbot extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1400, 800));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        btnBack.setBackground(new java.awt.Color(51, 51, 51));
+        btnBack.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        btnBack.setBorder(null);
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBackMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBackMouseExited(evt);
+            }
+        });
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         titlebarpnl3.setBackground(new java.awt.Color(153, 0, 0));
         titlebarpnl3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -491,14 +530,11 @@ public class Frm_Chatbot extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtField, javax.swing.GroupLayout.PREFERRED_SIZE, 968, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSend, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 6, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
+                .addComponent(txtField, javax.swing.GroupLayout.PREFERRED_SIZE, 968, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSend, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -516,14 +552,20 @@ public class Frm_Chatbot extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(titlebarpnl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 63, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(537, 537, 537))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,7 +575,9 @@ public class Frm_Chatbot extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 37, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -626,6 +670,36 @@ public class Frm_Chatbot extends javax.swing.JFrame {
         handleChatbot(userMsg);
     }//GEN-LAST:event_btnSendActionPerformed
 
+    private void btnBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackMouseEntered
+
+    private void btnBackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackMouseExited
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        txtArea.setText("");
+        txtField.setText("");
+
+        // 1) get current state of chatbot (NORMAL / MAXIMIZED / ICONIFIED)
+        int state = this.getExtendedState();
+
+        // 2) close chatbot
+        this.dispose();
+
+        // 3) open dashboard and apply same state
+        Frm_Dashboard dashboard = new Frm_Dashboard(username, role);
+        dashboard.setExtendedState(state);
+
+        // optional: if you want it to appear in the same screen position when NORMAL
+        // dashboard.setLocation(this.getLocation());
+
+        dashboard.setVisible(true);
+        
+    }//GEN-LAST:event_btnBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -662,6 +736,7 @@ public class Frm_Chatbot extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSend;
     private javax.swing.JButton closebtn;
     private javax.swing.JLabel jLabel1;

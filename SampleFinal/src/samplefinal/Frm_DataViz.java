@@ -4,6 +4,9 @@
  */
 package samplefinal;
 
+import java.awt.Color;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Lenovo
@@ -13,8 +16,12 @@ public class Frm_DataViz extends javax.swing.JFrame {
     /**
      * Creates new form Frm_DataViz
      */
+    private int mouseX, mouseY;
+    private boolean isMaximized;
+    
     public Frm_DataViz() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -26,22 +33,198 @@ public class Frm_DataViz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        titlebarpnl3 = new javax.swing.JPanel();
+        closebtn = new javax.swing.JButton();
+        minimizebtn = new javax.swing.JButton();
+        maximizebtn = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1400, 800));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1210, Short.MAX_VALUE)
+        titlebarpnl3.setBackground(new java.awt.Color(153, 0, 0));
+        titlebarpnl3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                titlebarpnl3MouseDragged(evt);
+            }
+        });
+        titlebarpnl3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                titlebarpnl3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                titlebarpnl3MouseReleased(evt);
+            }
+        });
+
+        closebtn.setBackground(new java.awt.Color(194, 89, 86));
+        closebtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close (1).png"))); // NOI18N
+        closebtn.setBorder(null);
+        closebtn.setBorderPainted(false);
+        closebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closebtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closebtnMouseExited(evt);
+            }
+        });
+        closebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closebtnActionPerformed(evt);
+            }
+        });
+
+        minimizebtn.setBackground(new java.awt.Color(194, 89, 86));
+        minimizebtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimize-sign.png"))); // NOI18N
+        minimizebtn.setBorder(null);
+        minimizebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                minimizebtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                minimizebtnMouseExited(evt);
+            }
+        });
+        minimizebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minimizebtnActionPerformed(evt);
+            }
+        });
+
+        maximizebtn.setBackground(new java.awt.Color(194, 89, 86));
+        maximizebtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/maximize.png"))); // NOI18N
+        maximizebtn.setBorder(null);
+        maximizebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                maximizebtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                maximizebtnMouseExited(evt);
+            }
+        });
+        maximizebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maximizebtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout titlebarpnl3Layout = new javax.swing.GroupLayout(titlebarpnl3);
+        titlebarpnl3.setLayout(titlebarpnl3Layout);
+        titlebarpnl3Layout.setHorizontalGroup(
+            titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarpnl3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(minimizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(maximizebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 609, Short.MAX_VALUE)
+        titlebarpnl3Layout.setVerticalGroup(
+            titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarpnl3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(titlebarpnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(minimizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(closebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(maximizebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                .addContainerGap())
         );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(titlebarpnl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(titlebarpnl3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 561, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void closebtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closebtnMouseEntered
+        // TODO add your handling code here:
+        closebtn.setBackground(new Color(170, 70, 68));
+    }//GEN-LAST:event_closebtnMouseEntered
+
+    private void closebtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closebtnMouseExited
+        // TODO add your handling code here:
+        closebtn.setBackground(new Color(194, 89, 86));
+    }//GEN-LAST:event_closebtnMouseExited
+
+    private void closebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closebtnActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_closebtnActionPerformed
+
+    private void minimizebtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizebtnMouseEntered
+        // TODO add your handling code here:
+        minimizebtn.setBackground(new Color(170, 70, 68));
+    }//GEN-LAST:event_minimizebtnMouseEntered
+
+    private void minimizebtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizebtnMouseExited
+        // TODO add your handling code here:
+        minimizebtn.setBackground(new Color(194, 89, 86));
+    }//GEN-LAST:event_minimizebtnMouseExited
+
+    private void minimizebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizebtnActionPerformed
+        // TODO add your handling code here:
+        setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_minimizebtnActionPerformed
+
+    private void maximizebtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizebtnMouseEntered
+        // TODO add your handling code here:
+        maximizebtn.setBackground(new Color(170, 70, 68));
+    }//GEN-LAST:event_maximizebtnMouseEntered
+
+    private void maximizebtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizebtnMouseExited
+        // TODO add your handling code here:
+        maximizebtn.setBackground(new Color(194, 89, 86));
+    }//GEN-LAST:event_maximizebtnMouseExited
+
+    private void maximizebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maximizebtnActionPerformed
+
+        // TODO add your handling code here:
+        if (!isMaximized) {
+            setExtendedState(JFrame.MAXIMIZED_BOTH);
+            isMaximized = true;
+        } else {
+            setExtendedState(JFrame.NORMAL);
+            setSize(1400, 800);
+            setLocationRelativeTo(null);
+            isMaximized = false;
+        }
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_maximizebtnActionPerformed
+
+    private void titlebarpnl3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titlebarpnl3MouseDragged
+        // TODO add your handling code here:
+        if (isMaximized) return; // optional: disable dragging when maximized
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - mouseX, y - mouseY);
+    }//GEN-LAST:event_titlebarpnl3MouseDragged
+
+    private void titlebarpnl3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titlebarpnl3MousePressed
+        // TODO add your handling code here:
+        mouseX = evt.getX();
+        mouseY = evt.getY();
+    }//GEN-LAST:event_titlebarpnl3MousePressed
+
+    private void titlebarpnl3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titlebarpnl3MouseReleased
+
+    }//GEN-LAST:event_titlebarpnl3MouseReleased
 
     /**
      * @param args the command line arguments
@@ -79,5 +262,10 @@ public class Frm_DataViz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton closebtn;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton maximizebtn;
+    private javax.swing.JButton minimizebtn;
+    private javax.swing.JPanel titlebarpnl3;
     // End of variables declaration//GEN-END:variables
 }

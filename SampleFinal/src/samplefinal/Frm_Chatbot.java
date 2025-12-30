@@ -6,7 +6,6 @@ package samplefinal;
 
 import java.awt.Color;
 import java.awt.Component;
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -44,9 +43,8 @@ public class Frm_Chatbot extends javax.swing.JFrame {
     private int scoreEducation = 0;
     private int scoreHealth = 0;
     private int scoreArts = 0;
+    
 
-    // store last user answers if you want
-    private String lastAnswer = "";
     private final String username;
     private final String role;        
             
@@ -189,7 +187,6 @@ public class Frm_Chatbot extends javax.swing.JFrame {
     
     private void handleChatbot(String input) {
         String a = norm(input);
-        lastAnswer = a;
 
         switch(step) {
 
@@ -513,6 +510,8 @@ public class Frm_Chatbot extends javax.swing.JFrame {
         txtField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtField.setForeground(new java.awt.Color(255, 255, 255));
         txtField.setBorder(null);
+        txtField.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtField.setOpaque(true);
 
         btnSend.setBackground(new java.awt.Color(0, 0, 0));

@@ -662,7 +662,7 @@ public class Frm_Dashboard extends javax.swing.JFrame {
 
     private void btnDataVizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDataVizActionPerformed
         // TODO add your handling code here:
-        Frm_DataViz dataviz = new Frm_DataViz();
+        Frm_DataViz dataviz = new Frm_DataViz(username, role);
 
         dataviz.setExtendedState(this.getExtendedState()); // keep fullscreen/normal
         dataviz.setVisible(true);

@@ -672,7 +672,7 @@ public class Frm_Dashboard extends javax.swing.JFrame {
 
     private void btnCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditsActionPerformed
         // TODO add your handling code here:
-        Frm_Credits credits = new Frm_Credits();
+        Frm_Credits credits = new Frm_Credits(username, role);
 
         credits.setExtendedState(this.getExtendedState()); // keep fullscreen/normal
         credits.setVisible(true);

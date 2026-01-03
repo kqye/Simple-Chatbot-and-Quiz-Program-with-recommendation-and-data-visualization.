@@ -30,7 +30,7 @@ public class Frm_Chatbot extends javax.swing.JFrame {
     private int mouseX, mouseY;
     private boolean isMaximized;
     
-    // ===== CHATBOT SETTINGS =====
+    
     private final String BOT_NAME = "KursoBot";
 
     // conversation step
@@ -64,17 +64,17 @@ public class Frm_Chatbot extends javax.swing.JFrame {
     
     private void makeChatbotResponsive() {
 
-        // Root panel (the main container in your form)
+        // the main container in your form
         jPanel1.removeAll();
         jPanel1.setLayout(new BorderLayout());
         jPanel1.setOpaque(true);
 
-        // ===== TOP: title bar + title label =====
+        // title bar + title label 
         JPanel top = new JPanel();
         top.setOpaque(false);
         top.setLayout(new BoxLayout(top, BoxLayout.Y_AXIS));
 
-        top.add(titlebarpnl3); // your custom titlebar panel
+        top.add(titlebarpnl3); 
 
         jLabel1.setAlignmentX(Component.CENTER_ALIGNMENT); // "CHATBOT"
         top.add(Box.createVerticalStrut(10));
@@ -83,12 +83,12 @@ public class Frm_Chatbot extends javax.swing.JFrame {
 
         jPanel1.add(top, BorderLayout.NORTH);
 
-        // ===== CENTER WRAPPER: adds margins and centers the chat area =====
+        //  margins and centers the chat area 
         JPanel centerWrapper = new JPanel(new GridBagLayout());
         centerWrapper.setOpaque(false);
         centerWrapper.setBorder(new EmptyBorder(20, 80, 40, 80)); // top, left, bottom, right
 
-        // This panel is the "chat box" container (scroll + input row + back button)
+        // chat box container panel with scroll + input row + back button
         JPanel chatBox = new JPanel();
         chatBox.setOpaque(false);
         chatBox.setLayout(new BoxLayout(chatBox, BoxLayout.Y_AXIS));
@@ -96,7 +96,7 @@ public class Frm_Chatbot extends javax.swing.JFrame {
         int maxWidth = 1100; // max width of chat area
         chatBox.setMaximumSize(new Dimension(maxWidth, Integer.MAX_VALUE));
 
-        // ===== Chat Area (scrollpane) =====
+        // Chat Area (scrollpane) 
         jScrollPane1.setAlignmentX(Component.CENTER_ALIGNMENT);
         jScrollPane1.setPreferredSize(new Dimension(maxWidth, 430));
         jScrollPane1.setMaximumSize(new Dimension(maxWidth, 600));
@@ -104,7 +104,7 @@ public class Frm_Chatbot extends javax.swing.JFrame {
 
         chatBox.add(Box.createVerticalStrut(15));
 
-        // ===== Input Row (textfield + send button aligned) =====
+        //  Input Row (textfield + send button aligned) 
         JPanel inputRow = new JPanel();
         inputRow.setOpaque(false);
         inputRow.setLayout(new BoxLayout(inputRow, BoxLayout.X_AXIS));
@@ -128,7 +128,7 @@ public class Frm_Chatbot extends javax.swing.JFrame {
         // space between input and back button
         chatBox.add(Box.createVerticalStrut(20));
 
-        // ===== BACK BUTTON ROW (CENTERED BELOW) =====
+        // back button
         JPanel backRow = new JPanel();
         backRow.setOpaque(false);
         backRow.setLayout(new BoxLayout(backRow, BoxLayout.X_AXIS));
@@ -141,7 +141,6 @@ public class Frm_Chatbot extends javax.swing.JFrame {
 
         chatBox.add(backRow);
 
-        // optional bottom space
         chatBox.add(Box.createVerticalStrut(20));
 
         // Put chatBox into centerWrapper (centered)

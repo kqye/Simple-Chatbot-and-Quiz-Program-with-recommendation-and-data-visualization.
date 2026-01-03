@@ -1,6 +1,5 @@
 package samplefinal;
 
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -341,14 +340,6 @@ public class Frm_Sample extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPassActionPerformed
 
-    private void MsgAlert(String msg, int icon, String title)
-    {
-        JOptionPane opt = new JOptionPane();
-        opt.setMessage(msg);
-        opt.setMessageType(icon);
-        JDialog dialog = opt.createDialog(this,title);
-        dialog.setVisible(true);
-    }
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String username = txtUser.getText().trim();
         String password = String.valueOf(txtPass.getPassword());
@@ -521,7 +512,7 @@ public class Frm_Sample extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuestMouseEntered
 
     private void btnGuestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuestMouseExited
-        // TODO add your handling code here:
+         // TODO add your handling code here:
         btnGuest.setBackground(new Color(0,0,0));
     }//GEN-LAST:event_btnGuestMouseExited
 

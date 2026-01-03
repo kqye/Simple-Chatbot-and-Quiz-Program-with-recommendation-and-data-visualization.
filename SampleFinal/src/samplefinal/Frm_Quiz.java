@@ -328,7 +328,6 @@ public class Frm_Quiz extends javax.swing.JFrame {
         // Use HTML so you can do multi-line text in a JLabel
         lblDescription.setText(
         "<html><div style='text-align:center;'>"
-        + "<b>SCIENCE QUIZ</b><br><br>"
         + "This quiz contains basic knowledge in Science.<br>"
         + "It consists of check boxes and multiple-choice questions.<br>"
         + "You have 10 minutes to answer the following questions.<br>"

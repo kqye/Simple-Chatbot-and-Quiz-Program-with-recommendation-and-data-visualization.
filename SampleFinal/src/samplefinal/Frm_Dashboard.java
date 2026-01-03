@@ -78,7 +78,7 @@ public class Frm_Dashboard extends javax.swing.JFrame {
             BorderFactory.createEmptyBorder(0, 60, 30, 60) // margins
         );
 
-        // IMPORTANT: add jPanel3 ONLY ONCE
+        
         centerWrapper.add(jPanel3, BorderLayout.CENTER);
 
         // Push panel toward bottom on tall screens
@@ -130,17 +130,16 @@ public class Frm_Dashboard extends javax.swing.JFrame {
         // B3 Data Visualization
         btnDataViz.setVisible(isAdmin || isGuest);
 
-        // B4 Credits (everyone)
+        // B4 Credits
         btnCredits.setVisible(true);
     }
     
-    private JPanel menuRow;   // make it a field if you want to refresh later
 
     private void setupDashboardButtons() {
 
         jPanel3.setLayout(new BorderLayout());
 
-        // ================= TOP: INFO LABELS =================
+        // info labels
         JPanel infoPanel = new JPanel(new GridLayout(2, 2, 40, 10));
         infoPanel.setOpaque(false);
         infoPanel.setBorder(BorderFactory.createEmptyBorder(30, 60, 20, 60));
@@ -152,8 +151,7 @@ public class Frm_Dashboard extends javax.swing.JFrame {
 
         jPanel3.add(infoPanel, BorderLayout.NORTH);
 
-        // ================= CENTER: MENU BUTTONS (COLLAPSES) =================
-        // ================= CENTER: MENU BUTTONS (COLLAPSE + FIXED SIZE) =================
+        // buttons
         JPanel menuRow = new JPanel(new FlowLayout(FlowLayout.CENTER, 40, 0));
         menuRow.setOpaque(false);
         menuRow.setBorder(BorderFactory.createEmptyBorder(40, 40, 30, 40));
@@ -183,7 +181,7 @@ public class Frm_Dashboard extends javax.swing.JFrame {
         jPanel3.add(menuArea, BorderLayout.CENTER);
 
 
-        // ================= SOUTH: LOGOUT =================
+        // logout
         JPanel logoutPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         logoutPanel.setOpaque(false);
         logoutPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 25, 0));
@@ -215,10 +213,8 @@ public class Frm_Dashboard extends javax.swing.JFrame {
         b.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         b.setVerticalAlignment(javax.swing.SwingConstants.CENTER);
 
-        b.setIconTextGap(12);          // space between icon and text
+        b.setIconTextGap(12);          
         b.setFocusPainted(false);
-        // optional: b.setBorderPainted(false);
-        // optional: b.setContentAreaFilled(true);
     }
 
 
